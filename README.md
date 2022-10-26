@@ -1,6 +1,7 @@
 # datas-employee
 
-Datas-employee is a Rest API where different types of queries to can be made to a database such as create, update, get an delete the data of the 3 employees registered in the db.
+Datas-employee is a Rest API developed using Node.js and Express where different types of queries to can be made to a database such as create, update, get an delete the data of the 3 employees registered in the db.
+
 ### Requirements
 - Node v18.7.0
 - npm v8.15.0
@@ -11,3 +12,4 @@ Datas-employee is a Rest API where different types of queries to can be made to 
 - Add this "type": "module" to your package.json
 ### Dev dependencies
 - Nodemon v2.0.20
+
