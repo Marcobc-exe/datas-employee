@@ -13,3 +13,11 @@ Datas-employee is a Rest API developed using Node.js and Express where different
 ### Dev dependencies
 - Nodemon v2.0.20
 
+# Preview query result
+
+### Get all employees
+`http://localhost:3000/api/allemployees` <br>
+<img src="https://github.com/Marcobc-exe/datas-employee/blob/master/img/allEmployees.png" width="400">
+
+### 404 not found
+<img src="https://github.com/Marcobc-exe/datas-employee/blob/master/img/404NotFound.png" width="400">
