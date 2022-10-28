@@ -1,5 +1,3 @@
-# datas-employee
-
 Datas-employee is a Rest API developed using Node.js and Express where different types of queries to can be made to a database such as create, update, get an delete the data of the 3 employees registered in the db.
 
 # Getting Started
