@@ -1,6 +1,6 @@
 import express from 'express'
 import employeeRoutes from './routes/employees.routes.js'
-import welcome from './routes/welcome.routes.js'
+import welcome from './routes/index.routes.js'
 
 const app = express()
 

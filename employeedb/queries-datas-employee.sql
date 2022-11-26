@@ -84,8 +84,22 @@ select e.employee_id, e.first_name, e.last_name, e.salary
 from employee e 
 where e.first_name = 'joe';
 
+update employee set 
+first_name = ifnull(?, first_name), 
+last_name = ifnull(?, last_name), 
+email = ifnull(?, email), 
+salary = ifnull(?, salary)
+where first_name = ?;
 
+update employee set first_name = 'Marco' where employee_id = 1;
 
+# Error Code: 1175. You are using safe update mode and you tried to update a table without a 
+# WHERE that uses a KEY column.  To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
+
+SELECT * FROM EMPLOYEE;
+
+# Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version 
+# for the right syntax to use near '?, first_name),  last_name = ifnull(?, last_name),  email = ifnull(?, email),  s' at line 2
 
 
 
