@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
+    "logplease": "^1.2.15",
     "nodemon": "^2.0.20"
   }
 }

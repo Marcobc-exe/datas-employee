@@ -6,9 +6,11 @@ import {
     getSalaryByName,
     updateEmployee
 } from "../controllers/employees.controller.js";
+import {welcome} from '../controllers/index.controller.js'
 
 const router = Router();
 
+router.get('/welcome', welcome)
 router.get("/allsalaryemployees", getAllSalaryEmployees);
 router.get("/alldataemployees", getAllDataEmployees);
 router.get("/alladdressemployees", getAddressEmployees);

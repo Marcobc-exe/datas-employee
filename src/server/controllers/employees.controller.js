@@ -1,10 +1,16 @@
-import { db } from "../db/db.js";
+import { db } from '../db/db.js'
+import Logger from "logplease";
 
-const goToHome = "http://localhost:3000/";
+const LOG = Logger.create("utils");
+
+const goToHome = "http://localhost:5000/api/welcome";
 const message = "Something goes wrong...";
 
 // Get Salaries employees from table 'employee'
 export const getAllSalaryEmployees = async (req, res) => {
+
+    LOG.info("Obteniendo todos los salarios de todos los empleados");
+    
     try {
         const [searchSalaryEmployees] = await db.query(
             "SELECT e.employee_id, e.first_name, e.last_name, e.salary FROM employee e;"
@@ -20,6 +26,9 @@ export const getAllSalaryEmployees = async (req, res) => {
 
 // Get all datas of all employees
 export const getAllDataEmployees = async (req, res) => {
+
+    LOG.info("Obteniendo toda la información de todos los empleados");
+
     try {
         const [searchAllDataEmployees] = await db.query(
             `
@@ -42,6 +51,9 @@ export const getAllDataEmployees = async (req, res) => {
 
 // Get full name, address and email of all employess
 export const getAddressEmployees = async (req, res) => {
+    
+    LOG.info("Obteniendo email de todos los empleados");
+
     try {
         const [searchAddressEmployee] = await db.query(
             `
@@ -62,7 +74,10 @@ export const getAddressEmployees = async (req, res) => {
 // Get id employee, full name and salary of an employee by their name
 export const getSalaryByName = async (req, res) => {
     const name = req.params.name;
-    console.log(name);
+
+    LOG.info(`Consultando salario de ${name}`);
+
+    // console.log(name);
     try {
         const [searchByName] = await db.query(
             `
@@ -84,6 +99,9 @@ export const getSalaryByName = async (req, res) => {
 // Update datas employees like first name, last name email and salary
 export const updateEmployee = async (req, res) => {
     const { nameParam } = req.params;
+
+    LOG.info(`Actualizando la informacion de ${nameParam}`);
+
     // console.log(nameParam)
     const {
         employeeFirstName,
@@ -97,7 +115,7 @@ export const updateEmployee = async (req, res) => {
         last_name: ${employeeLastName}
         email: ${employeeEmail}
         salary: ${employeeSalary}
-    `)
+    `);
 
     try {
         const [updateEmployeeQuery] = await db.query(
@@ -109,21 +127,27 @@ export const updateEmployee = async (req, res) => {
             salary = IFNULL(?, salary)
             WHERE first_name = ?;
             `,
-            [ employeeFirstName, employeeLastName, employeeEmail, employeeSalary, nameParam ]
+            [
+                employeeFirstName,
+                employeeLastName,
+                employeeEmail,
+                employeeSalary,
+                nameParam,
+            ]
         );
 
-        if (updateEmployeeQuery.affectedRows === 0) return res.json(404).json(message)
+        if (updateEmployeeQuery.affectedRows === 0)
+            return res.json(404).json(message);
 
         const [newData] = await db.query(
             "SELECT * FROM EMPLOYEE WHERE first_name = ?",
             [nameParam]
-        )
+        );
 
         res.json({
             goToHome,
-            newData
+            newData,
         });
-
     } catch (error) {
         return res.json(message);
     }

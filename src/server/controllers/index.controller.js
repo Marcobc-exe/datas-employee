@@ -1,3 +1,4 @@
+const localhost = 5000
 
 export const welcome = (req, res) => {
     res.json({
@@ -6,19 +7,21 @@ export const welcome = (req, res) => {
         routes: {
             getAllSalaryEmployees: {
                 description: "Get Salaries employees from table 'employee'",
-                path: "http://localhost:3000/api/allsalaryemployees"
+                path: `http://localhost:${localhost}/api/allsalaryemployees`
             },
             getAllDataEmployees: {
                 description: "Get all datas of all employees",
-                path: "http://localhost:3000/api/alldataemployees"
+                path: `http://localhost:${localhost}/api/alldataemployees`
             },
             getAddressEmployees: {
                 description: "Get full name, address and email of all employess",
-                path: "http://localhost:3000/api/alladdressemployees"
+                path: `http://localhost:${localhost}/api/alladdressemployees`
             },
             getSalaryByName: {
                 description: "Get id employee, full name and salary of an employee by their name",
-                path: "http://localhost:3000/api/salarybyname"
+                path: `http://localhost:${localhost}/api/salarybyname/marco`,
+                path: `http://localhost:${localhost}/api/salarybyname/ryan`,
+                path: `http://localhost:${localhost}/api/salarybyname/mathias`,
             }
         }
     })
