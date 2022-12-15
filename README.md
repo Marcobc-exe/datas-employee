@@ -14,6 +14,7 @@ Open http://localhost:3000 with your browser to see the result.
 - Add this "type": "module" to your package.json
 ### Dev dependencies
 - Nodemon v2.0.20
+- logplease 2.0.20
 
 # Preview query result
 ### Welcome
