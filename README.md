@@ -15,8 +15,7 @@ Open http://localhost:3000 with your browser to see the result. <br>
 ### Dependencies
 - Express v4.18.2
 - mysql2 v2.3.3
-- Add this "type": "module" to your package.json
-- Add this
+- Add this "type": "module" to your package.json from server
 ### Dev dependencies
 - Nodemon v2.0.20
 - logplease 2.0.20
